@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html{scroll-behavior: smooth;overflow-x: hidden;}
+body{
+    background-color: black;
+    background: url("../Icons/ClassesBackground.jpg") no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 50px 0; /* مسافة من الأعلى */
+    font-size: 75px;
+    color: rgb(154, 154, 154);
+    text-align: center;
+}
+.Message{
+    padding: 10px;
+    border-bottom: 10px solid rgba(255,0,0,0.5);
+}

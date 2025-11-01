@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Joinning FITGYM</title>
+  <link rel="stylesheet" href="Join.css">
+</head>
+<body>
+
+<main>
+        <!--Signin-->
+<div class="container" id="container">
+<input class="flip-toggle" type="checkbox" id="flip1" aria-controls="flip1-card">
+<div class="flip" id="flip1-card" role="group" aria-label="The Last Train card">
+        
+        <div class="all-Signin-Container">
+        <div class="overlay-panel overlay-signin">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+        </div>
+        <div class="form-container sign-in-container">
+      <form action="Get">
+    <h1>Sign in</h1>
+    <span>use your account</span>
+     <div class="input-group">
+       <input type="text" required>
+       <i class="fa-solid fa-user"></i>
+       <label for="">Username Or Mobile</label>
+     </div>
+    <div class="input-group">
+        <input type="password" required>
+        <i class="fa-solid fa-lock"></i>
+        <label for="">Password</label>
+    </div>
+    <div class="forgot-pass-action">
+        <a href="#">Forgot your password?</a><br>
+        <br>
+        <button>Sign In</button>
+        </div>
+      </form>
+      <div class="Signup-Action ">
+      <span style="font-size: medium;">New to FITGYM? </span>
+      <label data-front="" class="flip-btn" for="flip1" aria-controls="flip1-card" aria-label="Flip card"><strong>Sign up</strong></label>
+      </div>
+      </div>
+    </div>
+
+    <!--Signout-->
+    <div class="all-Signup-Container">
+        <div class="overlay-panel overlay-signout">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start your journey with us</p>
+        </div>
+    <div class="form-container sign-up-container">
+      <form action="Post">
+        <h1>Create Account</h1>
+        <span>use UserName/Mobile for registration</span>
+         <div class="input-group">
+       <input type="text" required>
+       <i class="fa-solid fa-user"></i>
+       <label for="">Username</label>
+         </div>
+         <div class="input-group">
+       <input type="number" required>
+       <i class="fa-solid fa-phone"></i>
+       <label for="">Mobile</label>
+         </div>
+    <div class="input-group">
+    <input type="password" required>
+    <i class="fa-solid fa-lock"></i>
+    <label for="">Password</label>
+    </div>
+        <button>Sign Up</button>
+      </form>
+      <div class="Signup-Action">
+         <span style="font-size: medium;">Already have an account? </span>
+   <label data-back="" class="btn" for="flip1" aria-controls="flip1-card" aria-label="Flip back"><strong>Sign in</strong></label>
+    </div>     
+    </div>
+     </div>
+
+</div>
+
+</div>
+</main>
+
+  <script src="script.js"></script>
+</body>
+</html>

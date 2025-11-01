@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITGYM</title>
+    <link rel="stylesheet" href="css/styles.css">
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+/>
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.imgslide');
+  const dots = document.querySelectorAll('.dot');
+  const thumbs = document.querySelectorAll('.work-thumb');
+  let current = 0;
+
+  const slideWidth = thumbs[0].offsetWidth + 100; // 20 هو الـ gap
+
+  function goToSlide(index) {
+    current = index;
+    slider.scrollTo({
+      left: slideWidth * index,
+      behavior: 'smooth'
+    });
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  // التحكم بالدوتس فقط
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      goToSlide(index);
+    });
+  });
+
+  // اختيارياً: تحديث الدوتس أثناء السحب باللمس
+  slider.addEventListener('scroll', () => {
+    const index = Math.round(slider.scrollLeft / slideWidth);
+    dots.forEach(d => d.classList.remove('active'));
+    if(dots[index]) dots[index].classList.add('active');
+  });
+});
+</script>
+<body>
+    <header class="site-header">
+        <div class="container navbar">
+            <div class="brand">
+                <div class="Nav-Logo">
+                <div class="logo" aria-hidden="true"><a href="#home"><img src="Icons/NavPic.svg" alt="Gym Icon" title="Gym Icon" style="width: 48px; height: 48px;"></a></div>
+                <div class="Logo-Name">FITGYM</div>
+                </div>
+            </div>
+            <button id="menu-toggle" class="menu-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">☰</button>
+            <nav id="nav-links" class="nav-links" aria-label="Primary">
+                <a href="#home">Home</a>
+                <a href="#Info">Info</a>
+                <a href="#classes">Classes</a>
+                <a href="#trainers">Trainers</a>
+                <a href="#contact">Contact</a>
+                <a href="Join Gym Page/JoiningToGym.html" class="cta">Join Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+         <div class="HeroOverlay-Title">
+            <h1>Welcom To FITGYM <br><span style="color: red;">Men's Factory</span></h1>
+            <a href="Join Gym Page/JoiningToGym.html" class="Hero-link">Join Now</a>
+         </div>
+        </section>
+
+        <section id="Info" class="Info">
+            <div class="First-Info-Container">
+            <div class="First-Info-paragraph">
+                <p><i class="fa-solid fa-user"></i><strong> 2,000</strong><br>Member</p>
+                <p><i class="fa-solid fa-users"></i><strong> 150</strong><br>Daily Visitors</p>
+                <p><i class="fa-solid fa-weight-scale"></i><strong> 60</strong><br>Health Program</p>
+                <p><i class="fa-solid fa-person"></i><strong> 6</strong><br>Efficient trainers</p>
+            </div>
+            </div>
+            <div class="Sec-Info">
+                <div class="SecInfo-Container">
+                  <article>
+                <h2>Why FITGYM</h2>
+                    <p>Choosing <strong style="color: red;">FITGYM</strong> is more 
+                        than just joining a fitness center — it’s joining a community that’s 
+                        committed to your growth, health, 
+                        and confidence. Our state-of-the-art equipment ensures every workout is effective, safe, and enjoyable. Certified trainers are always 
+                        available to guide you, whether you’re a beginner or an athlete. We offer personalized fitness plans tailored to your goals, so 
+                        you’ll never feel lost or unmotivated.The clean, modern environment makes every visit something to look forward to. Our 
+                        flexible hours fit perfectly into your busy lifestyle. Group classes and challenges keep 
+                        your fitness journey fun and exciting.
+                        Supportive members and staff create a 
+                        positive atmosphere that pushes you to do your best. We focus on results, not just routines, ensuring you see real progress. At our gym, you don’t just work out — you transform 
+                        your body, mind, and lifestyle.</p>
+                        <p><strong>Check More About </strong><a href="Subs Packages/Subscriptionpackages.html">Subscription packages</a></p>
+                </div>
+                </article>
+                <div class="SecInfo-Image">
+                    <img src="Icons/FitGymPic.png" alt="Gym Image" title="Gym Image" loading="lazy" width="100%" height="auto">
+                </div>
+            </div>
+        </section>
+
+        <section id="classes" class="Classes">
+            <div class="Classes-Container">
+              <article>
+            <h2>Classes</h2>
+            <p>At My FitGym, we offer a wide variety of classes designed to suit 
+                all fitness levels and goals. From high-energy cardio sessions and strength training 
+                to calming yoga and pilates, our classes provide the perfect balance between challenge and motivation. 
+                Each session is led by certified instructors who focus on proper technique, safety, and personalized support. 
+                Whether you want to burn calories, build muscle, or improve flexibility, there’s a class for you. Our group environment 
+                fosters community and encouragement, helping you stay consistent and enjoy every workout. At My FitGym, fitness isn’t just about 
+                exercise—it’s about feeling stronger, healthier, and more confident every day.</p>
+        </div>
+              </article>
+            <div class="imgslide">
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Calisthenics</h3>
+            <span class="category">Using body wheight to muscle</span>
+          </div>
+          <img src="Icons/Class3.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Cardio</h3>
+            <span class="category">Cardio Vascular</span>
+          </div>
+          <img src="Icons/Class1.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Heavy Cardio</h3>
+            <span class="category">Lose Weight</span>
+          </div>
+          <img src="Icons/Class2.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Whieght</h3>
+            <span class="category">Fitness</span>
+          </div>
+          <img src="Icons/Class4.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Body Bulding</h3>
+            <span class="category">Make you abber on stage</span>
+          </div>
+          <img src="Icons/Class5.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+        <a class="work-thumb" href="Classes/Classes.html">
+          <div class="work-text">
+            <h3>Perfect Class</h3>
+            <span class="category">All In One</span>
+          </div>
+          <img src="Icons/Class2.jpg" alt="Image" class="img-fluid" loading="lazy">
+        </a>
+      </div>
+      
+    <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+<section id="trainers" class="Trainers">
+  <article>
+    <div class="Classes-Container">
+        <h2 style="color: red;">Our Trainers</h2>
+        <p>Our trainers are certified fitness professionals dedicated to 
+          helping you achieve your health and fitness goals. With diverse expertise in areas such as strength training,
+           cardio, nutrition, and rehabilitation, they provide personalized guidance and support. Whether you're a beginner or 
+          an experienced athlete, our trainers create customized workout plans tailored to your
+           needs. They focus on proper technique, motivation, and accountability to ensure you stay on track. 
+           At My FitGym, our trainers are more than just instructors—they're your partners in fitness, 
+           committed to your success every step of the way.</p>
+    </div>
+</article>
+
+    <div class="Trainers-Images" role="Trainers" aria-label="The Trainers Images">
+ <!--size  vw : القياس اللي تريد الصورة تظهر به على الصفحة لكل حالة شاشة.-->
+ <!--srcset w : حجم الصورة الي في الملف الاصلي-->
+
+ <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip1" aria-controls="flip1-card" />
+      <div class="flip" id="flip1-card" role="trainers" aria-label="trainer1">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+<img src="Icons/Trainers/Trainer1L.jpg"
+srcset="Icons/Trainers/Trainer1L.jpg 1333w,
+        Icons/Trainers/Trainer1M.jpg 1000w"
+  sizes="(max-width: 600px) 1000px,
+         1300px"
+alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+<label data-front class="flip-btn" for="flip1" aria-controls="flip1-card" aria-label="Flip card">Info</label>
+</article>
+
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip1" aria-controls="flip1-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+</div>
+</div>
+
+ <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip2" aria-controls="flip2-card" />
+      <div class="flip" id="flip2-card" role="trainers" aria-label="trainer2">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+<img img src="Icons/Trainers/Trainer2L.jpg"
+srcset="Icons/Trainers/Trainer2L.jpg 2000w,
+        Icons/Trainers/Trainer2M.jpg 1500w"
+  sizes="(max-width: 600px) 100vw,
+         50vw"
+ alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+<label data-front class="flip-btn" for="flip2" aria-controls="flip2-card" aria-label="Flip card">Info</label>
+</article>
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip2" aria-controls="flip2-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+</div>
+</div>
+
+ <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip3" aria-controls="flip3-card" />
+      <div class="flip" id="flip3-card" role="trainers" aria-label="trainer3">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+ <img img src="Icons/Trainers/Trainer3M.jpg"
+srcset="Icons/Trainers/Trainer3L.jpg 1904w,
+        Icons/Trainers/Trainer3M.jpg 1428w"
+  sizes="(max-width: 600px) 100vw,
+         50vw"
+ alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+ <label data-front class="flip-btn" for="flip3" aria-controls="flip3-card" aria-label="Flip card">Info</label>
+</article>
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip3" aria-controls="flip3-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+</div>
+</div>
+
+ <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip4" aria-controls="flip4-card" />
+      <div class="flip" id="flip4-card" role="trainers" aria-label="trainer4">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+<img src="Icons/Trainers/Trainer7.jpg" alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+ <label data-front class="flip-btn" for="flip4" aria-controls="flip4-card" aria-label="Flip card">Info</label>
+</article>
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip4" aria-controls="flip4-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+</div>
+</div>
+
+ <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip5" aria-controls="flip5-card" />
+      <div class="flip" id="flip5-card" role="trainers" aria-label="trainer5">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+<img src="Icons/Trainers/Trainer6.jpg" alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+ <label data-front class="flip-btn" for="flip5" aria-controls="flip5-card" aria-label="Flip card">Info</label>
+</article>
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip5" aria-controls="flip5-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+</div>
+</div>
+
+    <div class="work-thumb Trainer-Card">
+   <input class="flip-toggle" type="checkbox" id="flip6" aria-controls="flip6-card" />
+      <div class="flip" id="flip6-card" role="trainers" aria-label="trainer6">
+  <article class="face front">
+   <div class="work-text">
+  <h3>Coach Name</h3>
+  <p>Coach Rank</p>
+</div>
+<img src="Icons/Trainers/Trainer8.jpg" alt="Trainer Image" class="img-fluid trainerimg" loading="lazy">
+ <label data-front class="flip-btn" for="flip6" aria-controls="flip6-card" aria-label="Flip card">Info</label>
+</article>
+
+  <article class="face back">
+<div>
+  <h2>Coach Name</h2>
+    <p>Coach Rank</p>
+    <p>
+      Somthing about the coach's background, experience, and 
+      training philosophy.
+    </p>
+    <p>Coach Department</p>
+</div>
+    <div class="actions">
+  <label data-back class="btn" for="flip6" aria-controls="flip6-card" aria-label="Flip back">Back</label>
+  </div>
+</article>
+  
+</div>
+</div>
+
+ </div>
+</section>
+
+<section id="contact" class="contact">
+  <article>
+    <div class="Classes-Container">
+        <h2 style="font-size: 50px; margin-top: 0;">Contact Us</h2>
+        <p>If you have any questions, need assistance, or want to learn more about our services, 
+          please don't hesitate to reach out. Our dedicated team is here to help you on your fitness journey. 
+          You can contact us via phone, email, or by visiting us in person. We look forward to hearing from you and 
+          assisting you in achieving your health and fitness goals!</p>
+    </div>
+</article>
+<div class="contact-container">
+  <form class="contact-form" action="#" method="post">
+    <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+  <input name="email" type="text" class="feedback-input" placeholder="Email" />
+  <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+  <input type="submit" value="SUBMIT"/>
+  </form>
+</div>
+</section>
+    </main>
+
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-section brand">
+      <h2>FITGYM</h2>
+      <p>Your Health Is Our Proparity</p>
+    </div>
+    <div class="footer-section links">
+      <h3>روابط سريعة</h3>
+      <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#classes">الكلاسات</a></li>
+        <li><a href="#trainers">المدربون</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+    </div>
+    <div class="footer-section social">
+      <h3>تابعنا</h3>
+      <div class="social-icons">
+       <a href="#Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#Twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#Youtube" aria-label="LinkedIn"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-section Developer">
+      <h3>FitGYM Website Developer</h3>
+      <p>Email: <span>omarkyhamed1996@gmail.com</span></p>
+      <address>Address: Jordan - Aqaba</address>
+      <p>Mobile: +962 79 678 036 8</p>
+      <div class="social-icons">
+          <a href="#Facebook"  aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#Twitter"   aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#LinkedIn"  aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 FITGYM. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+    <script src="js/app.js" type="module">
+  </script>
+</body>
+</html>

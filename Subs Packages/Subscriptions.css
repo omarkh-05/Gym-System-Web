@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+:root{
+    --bodybg:#ebeef1;
+    --ActiveCard:rgb(209, 11, 11);
+    --ActiveCardFont:rgba(255,255,255,1);
+    --ActiveCardh1:rgba(255,255,255,1);
+    --ActiveCardSpan:rgba(255,255,255,0.9);
+    --ActiveCardp:rgba(255,255,255,1);
+    --CardFontColor:rgba(0,0,0,0.7);
+    --Cardh1:rgba(0,0,0,1);
+    --CardSpan:rgba(0,0,0,0.7);
+    --Cardbg: white;
+    --themebtn:rgb(65, 63, 63);
+    --icon:rgb(255, 255, 255);
+    --cardp:rgba(0,0,0,0.6);
+    --ulLi:rgba(0,0,0,0.9);
+    --ullii:rgba(0,0,0,0.4);
+    --cardaborder:black;
+    --cardacolor:black;
+    --cardahover:white;
+    --cardaActiveBack:black;
+    --cardaActiveColor:white;
+    --BackTextColor:rgb(0, 0, 0);
+    --cardsboxshadow:10px 10px 10px -1px rgba(83, 100, 112, 0.16),
+    3px 3px 10px -1px rgba(101, 99, 99, 0.7);
+}
+body.dark {
+   --bodybg:#1e1e1f;
+    --ActiveCard:rgb(209, 11, 11);
+    --ActiveCardFont:rgba(255,255,255,1);
+    --ActiveCardh1:rgba(255,255,255,1);
+    --ActiveCardSpan:rgba(255,255,255,0.9);
+    --ActiveCardp:rgba(255,255,255,1);
+    --CardFontColor:rgb(255, 255, 255);
+    --Cardh1:rgb(255, 255, 255);
+    --CardSpan:rgba(255,255,255,0.9);
+    --Cardbg: rgb(54, 53, 53);
+    --themebtn:rgb(65, 63, 63);
+    --icon:rgb(255, 255, 255);
+    --cardp:rgba(255, 248, 248, 0.992);
+    --ulLi:rgba(246, 246, 246, 0.9);
+    --ullii:rgba(233, 0, 0, 0.889);
+    --cardaborder:white;
+    --cardacolor:white;
+    --cardahover:black;
+    --cardaActiveBack:white;
+    --cardaActiveColor:black;
+    --BackTextColor:rgb(255, 255, 255);
+    --cardsboxshadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  }
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+html{scroll-behavior: smooth;overflow-x: hidden;}
+body{
+    background-color: var(--bodybg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 50px 0; /* مسافة من الأعلى */
+}
+.background-text{
+    position: fixed;
+    top: 40%;
+    text-align: center;
+    font-size: 200px;
+    font-weight: 700;
+    z-index: -1;
+}
+.background-text p{
+    color: slategrey;
+    opacity: 0.1;
+}
+.dark-Theme-btn{
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    z-index: 5;
+}
+
+.dark-Theme-btn button{
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    background-color: var(--themebtn);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    color: var(--icon);
+}
+
+.dark-Theme-btn button:hover{
+    transform: rotate(22deg);
+    color: var(--CardFontColor);
+    background-color: var(--ActiveCardFont);
+}
+
+@keyframes Appear {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+div {
+  animation: Appear ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+@media (max-width:600px) {
+   div
+   {
+    animation: none;
+   }
+}
+.Page-Hero{
+    text-align: center;
+    color: var(--BackTextColor);
+    padding-bottom: 50px;
+    text-shadow: 0 5px 4px rgba(0,0,0,0.2);
+     animation: fade 1s ease-in-out forwards;
+}
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.Page-Hero h2{
+    font-size: 40px;
+    padding-bottom: 10px;
+    opacity: 0.8;
+}
+.Page-Hero p{
+    opacity: 0.9;
+}
+
+.Second{
+    padding-top: 50px;
+     animation: Appear ease-in-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    color: var(--CardFontColor);
+}
+@media (max-width:1290px) {
+    .wrapper{grid-template-columns: repeat(2,1fr); gap: 60px;}
+}
+@media (max-width:700px) {
+    .wrapper{grid-template-columns: repeat(1,1fr); gap: 10px;}
+}
+
+.wrapper .card{
+    width: 300px;
+    background-color: var(--Cardbg);
+    padding: 40px 30px;
+    margin: 30px 15px;
+    border-radius: 10px;
+    box-shadow: var(--cardsboxshadow);
+     transition: all 0.4s ease-in-out;
+    animation: cardfade 0.5s ease-in-out;
+}
+@keyframes cardfade {
+  0% { opacity: 0; transform: translateX(20%); }
+  100% {opacity: 1; transform: translateX(0); }
+}
+
+.card:hover{
+transform: translateY(-10px);
+}
+
+.wrapper .card.active{
+    background-color: var(--ActiveCard);
+}
+
+.wrapper .card h3{
+    margin-bottom: 15px;
+}
+
+/* For Active Card */
+.wrapper .card.active{
+   color: var(--ActiveCardFont);
+}
+
+.wrapper .card h1{
+    margin-bottom: 10px;
+    color: var(--Cardh1);
+}
+/* For Active Card */
+.wrapper .card.active h1{
+    color: var(--ActiveCardh1);
+ }
+
+.wrapper .card h1 span{
+    font-size: 12px;
+    color: var(--CardSpan);
+}
+
+/* For Active Card */
+.wrapper .card.active h1 span{
+    color: var(--ActiveCardSpan);
+ }
+ 
+
+.wrapper .card p{
+    margin: 20px 0;
+    color: var(--cardp);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* For Active Card */
+.wrapper .card.active p{
+    color: var(--ActiveCardp);
+ }
+ 
+
+.wrapper .card ul{
+    list-style: none;
+}
+
+.wrapper .card ul li{
+    line-height: 3;
+    color:var(--ulLi) ;
+}
+
+/* For Active Card */
+.wrapper .card.active ul li{
+    color: var(--ActiveCardSpan);;
+ }
+ 
+
+.wrapper .card ul li i{
+    color: var(--ullii);
+    margin-right: 10px;
+}
+
+/* For Active Card */
+.wrapper .card.active ul li i{
+    color: rgba(255, 255, 255, 1);;
+ }
+ 
+
+.wrapper .card a{
+    margin: 20px 0;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid var(--cardaborder);
+    color: var(--cardaborder);
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+/* For Active Card */
+.wrapper .card.active a{
+   background-color: var(--cardaActiveBack);
+   color: var(--cardaActiveColor);
+ }
+ 
+.wrapper .card a:hover{
+    background-color: var(--cardacolor);
+    color: var(--cardahover);
+}
+
+/* For Active Card */
+.wrapper .card.active a:hover{
+    border: none;
+    background-color: var(--cardahover);
+    color: var(--cardacolor);
+  }

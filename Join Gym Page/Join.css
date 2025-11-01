@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+
+:root{
+    --signbg: rgb(235, 235, 235);
+    --containercolor: rgb(30, 30, 30);
+    --overlaybg: rgb(207, 8, 8);
+    --overlaycolor: rgb(255, 255, 255);
+    --overshadow:rgba(0,0,0,0.5);
+    --lblcolor: rgb(33, 33, 33);
+    --inputborder:rgb(200, 200, 200);
+    --hoverbtn:rgb(142, 5, 5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #090909 50%, #200c06 , #870000 100%)
+     no-repeat center center/ cover ;
+ color: white;
+}
+main {
+      width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;  /* يوسط أفقياً */
+    align-items: center;      /* يوسط عمودياً */
+    overflow: hidden;
+}
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+h2{
+	text-align: center;
+}
+p{
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+span{
+	font-size: 12px;
+}
+a{
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+.container {
+    width: 50%;
+    height:auto;
+	background-color: var(--signbg);
+    color: var(--containercolor);
+	border-radius: 25px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+    perspective: 1400px;
+    box-shadow:0 5px 20px 5px #570202;
+    opacity: 0.95;
+}
+@media (max-width: 1025px) {
+    .container {width: 75%;}
+}
+
+ .flip-toggle{
+      position: absolute; inset: 0;
+      width: 1px; height: 1px;
+      opacity: 0; pointer-events: none;
+    }
+
+    .flip{
+      width: 100%;
+      min-height: 50vh;
+      transform-style: preserve-3d;
+      transition: transform .7s cubic-bezier(.22,1,.36,1);
+      position: relative;
+      text-align: center;
+    }
+    
+    .overlay-panel{
+        padding: 20px;
+        width: 100%;
+        background-color: var(--overlaybg);
+        color: var(--overlaycolor);
+        border-radius: 0 0 25% 25%; /* المنحنيات الغير متماثلة */
+        box-shadow: 7px 10px 25px var(--overshadow);
+    }
+    .form-container{
+        padding-top: 20px;
+    }
+    @media (max-width: 539px) {
+    .container {width: 100%;min-height: 100%; border-radius: 3px;}
+    .form-container{padding-top: 100px;}
+    .overlay-panel{padding: 50px;}
+} @media (max-width: 380px) {
+    .container {width: 100%;min-height: 100%; border-radius: 3px;}
+    .form-container{padding-top: 50px;}
+    .overlay-panel{padding: 20px;}
+}
+@media (max-width: 913px) {
+    .form-container{padding-top: 70px;}
+    .overlay-panel{padding: 30px;}
+}
+
+    .all-Signin-Container{
+      position: absolute; inset: 0;
+      background:var(--signbg);
+      backface-visibility: hidden;
+      overflow: clip;
+    }
+    .all-Signup-Container{
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+      padding: 0;
+    }
+      .flip-toggle:checked + .flip{ transform: rotateY(180deg); }
+
+     .flip-btn{
+      z-index: 3;
+      color: var(--containercolor);
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+    }
+    .flip-btn:focus-visible{
+      outline: 3px solid red;
+      outline-offset: 2px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none; font-weight:600; line-height:1;
+      cursor: pointer;
+    }
+
+button {
+	border-radius: 20px;
+    border: none;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: all 80ms ease-in;
+    cursor: pointer;
+}
+button:hover{
+    background-color: var(--hoverbtn);
+}
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+.input-group {
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--lblcolor);
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .2s;
+}
+
+.input-group input {
+    width: 50%;
+    height: 60px;
+    font-size: 16px;
+    padding-right: 40px;   /* ✅ مساحة للأيقونة */
+    padding-left: 14px;
+    color: var(--lblcolor);
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--inputborder);
+}
+
+.input-group input:focus~label,
+.input-group input:valid~label {
+    top: 0;
+    font-size: 14px;
+    background: var(--signbg);
+    color: var(--overlaybg);
+}
+.input-group .fa-solid {
+    position: absolute;
+    right: 25%;            /* ✅ يحط الأيقونة داخل التكست بوكس من النهاية */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;  /* ✅ يمنع التأثير على الكتابة */
+    color: var(--lblcolor);
+}
+.input-group input:focus~i,
+.input-group input:valid~i {
+ color: var(--overlaybg);  
+}
+label:hover{
+    color: #771c1c;
+}
+.Signup-Action{
+    padding: 25px;
+}
+.forgot-pass-action > a:hover{
+color: black;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+/* لإخفاء الأسهم في Firefox */
+.no-spinner {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
