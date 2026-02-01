@@ -9,41 +9,9 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 />
+    <script src="js/app.js" type="module">
+  </script>
 </head>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const slider = document.querySelector('.imgslide');
-  const dots = document.querySelectorAll('.dot');
-  const thumbs = document.querySelectorAll('.work-thumb');
-  let current = 0;
-
-  const slideWidth = thumbs[0].offsetWidth + 100; // 20 هو الـ gap
-
-  function goToSlide(index) {
-    current = index;
-    slider.scrollTo({
-      left: slideWidth * index,
-      behavior: 'smooth'
-    });
-    dots.forEach(d => d.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
-
-  // التحكم بالدوتس فقط
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      goToSlide(index);
-    });
-  });
-
-  // اختيارياً: تحديث الدوتس أثناء السحب باللمس
-  slider.addEventListener('scroll', () => {
-    const index = Math.round(slider.scrollLeft / slideWidth);
-    dots.forEach(d => d.classList.remove('active'));
-    if(dots[index]) dots[index].classList.add('active');
-  });
-});
-</script>
 <body>
     <header class="site-header">
         <div class="container navbar">
@@ -388,14 +356,15 @@ srcset="Icons/Trainers/Trainer3L.jpg 1904w,
     </div>
 </article>
 <div class="contact-container">
-  <form class="contact-form" action="#" method="post">
-    <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-  <input name="email" type="text" class="feedback-input" placeholder="Email" />
-  <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
-  <input type="submit" value="SUBMIT"/>
+  <form id="form" class="contact-form">
+    <input name="name" id="name" type="name" class="feedback-input" placeholder="Name" />   
+  <input name="email" id="email" type="email" class="feedback-input" placeholder="Email" />
+  <textarea name="text" id="text" class="feedback-input" placeholder="Comment"></textarea>
+  <input id="submit-btn" type="submit" value="SUBMIT"/>
   </form>
 </div>
 </section>
+ <div class="toast" id="toast"></div>
     </main>
 
     <footer class="site-footer">
@@ -440,7 +409,6 @@ srcset="Icons/Trainers/Trainer3L.jpg 1904w,
   </div>
 </footer>
 
-    <script src="js/app.js" type="module">
-  </script>
+
 </body>
 </html>
