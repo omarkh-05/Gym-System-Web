@@ -87,33 +87,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //    Form Validation
 
-document.getElementById("form").addEventListener("submit", (event) => {
+const form = document.getElementById("form");
+const toast = document.getElementById("toast");
+
+form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("text").value;
+  // Create FormData
+  const formData = new FormData(form);
 
-  if (!name || !email || !message) {
+  // Convert to plain object
+  const data = Object.fromEntries(formData.entries());
+
+  const { name, email, text } = data;
+
+  // Validation
+  if (!name || !email || !text) {
     showToast("Please fill in all fields", "error");
     return;
   }
 
+  console.log("FormData Object:", data);
+
   showToast("Message Sent Successfully", "success");
 });
-const toast = document.getElementById("toast");
 
 function showToast(message, type) {
   toast.textContent = message;
-  switch (type) {
-    case "success":
-      toast.style.backgroundColor = "green";
-      break;
-    case "error":
-      toast.style.backgroundColor = "red";
-      break;
-    default:
-  }
+  toast.style.backgroundColor = type === "success" ? "green" : "red";
   toast.style.display = "block";
   setTimeout(() => (toast.style.display = "none"), 2200);
 }
