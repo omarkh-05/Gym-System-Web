@@ -99,11 +99,9 @@ form.addEventListener("submit", (event) => {
   // Convert to plain object
   const data = Object.fromEntries(formData.entries());
 
-  const { name, email, text } = data;
-
   // Validation
-  if (!name || !email || !text) {
-    showToast("Please fill in all fields", "error");
+  if (!form.checkValidity()) {
+    form.reportValidity();
     return;
   }
 

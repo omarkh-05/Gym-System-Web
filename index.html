@@ -357,9 +357,10 @@ srcset="Icons/Trainers/Trainer3L.jpg 1904w,
 </article>
 <div class="contact-container">
   <form id="form" class="contact-form">
-    <input name="name" id="name" type="name" class="feedback-input" placeholder="Name" />   
-  <input name="email" id="email" type="email" class="feedback-input" placeholder="Email" />
-  <textarea name="text" id="text" class="feedback-input" placeholder="Comment"></textarea>
+    <input name="name" id="name" type="name" class="feedback-input" placeholder="Name" required />   
+  <input name="email" id="email" type="email" class="feedback-input" placeholder="Email"  />
+  <input name="Age" id="Age" type="number" class="feedback-input" placeholder="Age" required min="18" max="100"/>
+  <textarea name="text" id="text" class="feedback-input" placeholder="Comment" required minlength="30"></textarea>
   <input id="submit-btn" type="submit" value="SUBMIT"/>
   </form>
 </div>
