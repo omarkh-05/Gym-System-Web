@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <title>Joinning FITGYM</title>
   <link rel="stylesheet" href="Join.css">
 </head>
@@ -12,6 +13,7 @@
 <main>
         <!--Signin-->
 <div class="container" id="container">
+
 <input class="flip-toggle" type="checkbox" id="flip1" aria-controls="flip1-card">
 <div class="flip" id="flip1-card" role="group" aria-label="The Last Train card">
         
@@ -54,38 +56,113 @@
           <p>Enter your personal details and start your journey with us</p>
         </div>
     <div class="form-container sign-up-container">
-      <form action="Post">
+      <form id="msform" action="Post">
         <h1>Create Account</h1>
         <span>use UserName/Mobile for registration</span>
+
          <div class="input-group">
        <input type="text" required>
        <i class="fa-solid fa-user"></i>
-       <label for="">Username</label>
+       <label for="Username">Username</label>
          </div>
          <div class="input-group">
-       <input type="number" required>
+       <input type="tel" required>
        <i class="fa-solid fa-phone"></i>
-       <label for="">Mobile</label>
+       <label for="Mobile">Mobile</label>
          </div>
-    <div class="input-group">
-    <input type="password" required>
-    <i class="fa-solid fa-lock"></i>
-    <label for="">Password</label>
-    </div>
-        <button>Sign Up</button>
-      </form>
+         <div class="input-group">
+       <input type="text" required>
+       <i class="fa-solid fa-user"></i>
+       <label for="NationalityID">Nationality Id</label>
+         </div>
+         <div class="input-group">
+              <select id="Nationality" name="Nationality" required>
+                <option value="" selected disabled hidden>Your Nationality</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Palestine">Palestine</option>
+                <option value="Syria">Syria</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Lebanon">Lebanon</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Oman">Oman</option>
+                <option value="Yemen">Yemen</option>
+                <option value="Bahrain">Bahrain</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Chile">Chileuntry</option>
+              </select>
+         </div>
+         <div class="input-group">
+       <input type="text" required>
+       <i class="fa-solid fa-user"></i>
+       <label for="Address">Address</label>
+         </div>
+         <div class="input-group">
+       <input id="DateOfBirth" type="date"required />
+         </div>
+         <div class="radio-container">
+        <div>
+          <h2 class="fs-title">Gender</h2>
+         <div class="radio-group trip-type">
+           <div>
+            <input id="rdMale" name="gender" value="Male" type="radio"/>
+            <label for="rdMale"><span></span>Male</label>
+           </div>
+          <div>
+            <input id="rdFemale" name="gender" value="Female" type="radio" checked="checked"/>
+            <label for="rdFemale"><span></span>Female</label>
+          </div>
+         </div>
+      </div>
+
+      <div>
+          <h2 class="fs-title">Has Disease</h2>
+         <div class="radio-group trip-type">
+           <div>
+            <input id="rdYes" name="disease" value="Yes" type="radio"/>
+            <label for="rdYes"><span></span>Yes</label>
+           </div>
+          <div>
+            <input id="rdNo" name="disease" value="No" type="radio" checked="checked"/>
+            <label for="rdNo"><span></span>No</label>
+          </div>
+         </div>
+      </div>
+         </div>
+
+         <div class="input-group">
+         <!--<input type="password" required>
+         <i class="fa-solid fa-lock"></i>
+         <label for="">Password</label>-->
+         <input type="password" id="Password" class="password" placeholder="Create a password" required />
+         <i class="uil uil-lock icon"></i>
+         </div>
+         <div class="input-group">
+         <input type="password" id="ConfirmPassword" class="password" placeholder="Confirm a password" required/>
+         <i class="uil uil-lock icon"></i>
+         <i class="uil uil-eye-slash showHidePw"></i>
+         </div>
+
+    <button>Sign Up</button>
+  </form>
       <div class="Signup-Action">
          <span style="font-size: medium;">Already have an account? </span>
-   <label data-back="" class="btn" for="flip1" aria-controls="flip1-card" aria-label="Flip back"><strong>Sign in</strong></label>
+      <label data-back="" class="btn" for="flip1" aria-controls="flip1-card" aria-label="Flip back"><strong>Sign in</strong></label>
     </div>     
     </div>
      </div>
 
 </div>
-
 </div>
+
 </main>
 
-  <script src="script.js"></script>
+  <script src="login.js"></script>
 </body>
 </html>
