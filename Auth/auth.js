@@ -1,4 +1,4 @@
-export const UrlBase = "http://localhost:5259/api/";
+export const UrlBase = "https://professionally-overjocular-chelsie.ngrok-free.dev/api/";
 
 const getCommonHeaders = () => ({
     "Content-Type": "application/json",
