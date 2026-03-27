@@ -233,7 +233,7 @@ form.addEventListener('submit', async (e) => {
 document.getElementById("Enroll-btn").addEventListener("click", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const redirectUrl = urlParams.get("redirect");
-    window.location.href = redirectUrl ? decodeURIComponent(redirectUrl) : "/Gym-System-Web/Profile/Profile.html";
+    window.location.href = redirectUrl ? decodeURIComponent(redirectUrl) : "/Gym-System-Web/Profile/profile.html";
 });
 
 
