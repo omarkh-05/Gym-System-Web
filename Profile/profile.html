@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ملف المشترك - نادي الرشاقة</title>
+    <title>FitGym Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="./profile.css">
 </head>
 <body>
 
     <div class="container">
         <header>
-            <div class="brand">GYM <span style="color: var(--text-main);">FORCE</span></div>
-            <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn">
+            <div class="brand">Fit <span style="color: var(--text-main);">GYM</span></div>
+            <button class="theme-toggle" id="theme-btn">
                 <span id="theme-icon">🌙</span>
                 <span id="theme-text">الوضع الداكن</span>
             </button>
@@ -22,32 +22,12 @@
             <!-- اليمين: معلومات اللاعب والجدول -->
             <div class="left-column">
                 <div class="card">
+                    <div class="person-card-header">
                     <h3 class="section-title">بيانات العضو الأساسية</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <span class="info-label">اسم اللاعب (Name)</span>
-                            <span class="info-value">محمد عبدالله الشمري</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">رقم المشترك (Subscriber No)</span>
-                            <span class="info-value">#88231</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">تاريخ الميلاد (Date Of Birth)</span>
-                            <span class="info-value">1995/05/12</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">الجنس (Gender)</span>
-                            <span class="info-value">ذكر</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">الرقم الوطني (National No)</span>
-                            <span class="info-value">295051200432</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">رقم الهاتف (Phone No)</span>
-                            <span class="info-value">050XXXXXXX</span>
-                        </div>
+                    <button id="signOutbtn" class="signoutbtn">Sign Out</button>
+                    </div>
+                     <div class="info-grid" id="person-info">
+                        <!-- سيتم ملؤه بالـ JS -->
                     </div>
                 </div>
 
@@ -57,25 +37,14 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>تاريخ اليوم (Today Date)</th>
-                                    <th>وقت الدخول (Entry Time)</th>
-                                    <th>وقت الخروج (Check out Time)</th>
-                                    <th>الحالة (Status)</th>
+                                    <th>تاريخ اليوم</th>
+                                    <th>وقت الدخول</th>
+                                    <th>وقت الخروج</th>
+                                    <th>الحالة</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2023/11/20</td>
-                                    <td class="badge-entry">04:30 PM</td>
-                                    <td class="badge-exit">06:00 PM</td>
-                                    <td><span class="status-pill">حاضر</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2023/11/19</td>
-                                    <td class="badge-entry">05:15 PM</td>
-                                    <td class="badge-exit">07:00 PM</td>
-                                    <td><span class="status-pill">حاضر</span></td>
-                                </tr>
+                            <tbody id="attendance-table-body">
+                                <!-- سيتم ملؤه بالـ JS -->
                             </tbody>
                         </table>
                     </div>
@@ -89,30 +58,15 @@
                     <span class="plan-type">الباقة البلاتينية</span>
                     <span class="plan-duration">مدة الاشتراك: 6 شهور</span>
 
-                    <div class="plan-details">
-                        <div class="plan-row">
-                            <span class="info-label">القسم (Department)</span>
-                            <span class="info-value">كمال أجسام</span>
-                        </div>
-                        <div class="plan-row">
-                            <span class="info-label">تاريخ البدء (SubDate)</span>
-                            <span class="info-value">2023/09/01</span>
-                        </div>
-                        <div class="plan-row">
-                            <span class="info-label">تاريخ الانتهاء (EndDate)</span>
-                            <span class="info-value">2024/03/01</span>
-                        </div>
-                        <div class="plan-row" style="border:none;">
-                            <span class="info-label">الحالة (Status)</span>
-                            <span class="status-pill">نشط</span>
-                        </div>
+                    <div class="plan-details" id="subscriber-info">
+                        <!-- سيتم ملؤه بالـ JS -->
                     </div>
-                    <a href="#" class="upgrade-btn">تحديث الاشتراك (Upgrade Plan)</a>
+                    <a href="#" id="upgradePlanbtn" class="upgrade-btn">تحديث الاشتراك (Upgrade Plan)</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="profile.js"></script>
+    <script type="module" src="./profile.js"></script>
 </body>
 </html>

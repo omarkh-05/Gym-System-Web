@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment Page</title>
+    <link rel="stylesheet" href="./Payment.css">
+</head>
+<body>
+ <div class="container">
+        <div class="header">
+            <h1>Checkout</h1>
+            <p>Review your order and pay</p>
+            <h2 id="Error_Message"></h2>
+        </div>
+
+        <!-- Order Summary Section -->
+        <div class="order-summary">
+            <div class="package-info">
+                <span class="label">Selected Package</span>
+                <span class="package-name"></span>
+            </div>
+            <div class="package-info" style="text-align: right;">
+                <span class="label">Total Amount</span>
+                <span class="total-amount"></span>
+            </div>
+        </div>
+
+        <!-- Date Selection Section -->
+        <div class="date-selection">
+            <div class="date-field">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date">
+            </div>
+            <div class="date-field">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" disabled>
+            </div>
+        </div>
+
+        <!-- Payment Wrapper: Hidden until start date is selected -->
+        <div id="payment-wrapper">
+            <!-- Payment Method Toggle -->
+            <div class="payment-methods">
+                <div class="method-option">
+                    <input type="radio" name="pay-method" id="method-visa" value="visa" checked>
+                    <label for="method-visa" class="method-label">
+                        <span>Credit Card</span>
+                    </label>
+                </div>
+                <div class="method-option">
+                    <input type="radio" name="pay-method" id="method-cash" value="cash">
+                    <label for="method-cash" class="method-label">
+                        <span>Cash</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Credit Card Preview -->
+            <div class="card-visual" id="card-preview-box">
+                <div class="chip"></div>
+                <div class="card-number-display" id="preview-number">•••• •••• •••• ••••</div>
+                <div class="card-bottom">
+                    <div class="card-info">
+                        <small>Card Holder</small>
+                        <div class="card-holder-display" id="preview-name">FULL NAME</div>
+                    </div>
+                    <div class="card-info">
+                        <small>Expires</small>
+                        <div class="card-expiry-display" id="preview-expiry">MM/YY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <form id="payment-form">
+                <div id="card-inputs-container">
+                    <div class="form-group">
+                        <label for="card-name">Cardholder Name</label>
+                        <input type="text" id="card-name" placeholder="e.g. John Doe" autocomplete="off">
+                        <div class="error-message" id="error-name">Please enter a valid name (min. 5 characters)</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19" autocomplete="off">
+                        <div class="error-message" id="error-number">Invalid card number (16 digits required)</div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="form-group" style="flex: 2;">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" autocomplete="off">
+                            <div class="error-message" id="error-expiry">Date must be in the future</div>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label for="card-cvc">CVV</label>
+                            <input type="text" id="card-cvc" placeholder="123" maxlength="3" autocomplete="off">
+                            <div class="error-message" id="error-cvc">3 digits</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn">Complete Enroll</button>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-modal">
+            <svg style="width:48px; height:48px; color:#22c55e; margin-bottom:10px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <p id="success-text">Payment Successful! Thank you for your Enroll.</p>
+            <br>
+            <button class="submit-btn" id="Enroll-btn">Back To Profile</button>
+        </div>
+    </div>
+    <script type="module" src="./Payment.js"></script>
+</body>
+</html>

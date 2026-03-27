@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscription Section</title>
-    <link rel="stylesheet" href="Subscriptions.css">
+    <link rel="stylesheet" href="./Subscriptions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body>
@@ -13,7 +13,10 @@
 <div class="background-text"><p>FITGYM</p></div>
     
     <div class="dark-Theme-btn">
-        <button id="toggleBtn"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <button class="theme-toggle" id="theme-btn">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">الوضع الداكن</span>
+        </button>
     </div>
     <div class="Page-Hero First">
         <h2>
@@ -25,8 +28,8 @@
     <div class="wrapper first">
         
         <div class="card">
-            <h3>Intro</h3>
-            <h1>35 jd <span>/Month</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>Join Now To Start Your New Life Style Journey.</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
@@ -41,8 +44,8 @@
 
 
         <div class="card active">
-            <h3>Base</h3>
-            <h1>90 jd <span>/3 Month</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>Join Now To Start Your New Life Style Journey.</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
@@ -57,8 +60,8 @@
 
 
         <div class="card">
-            <h3>Premium</h3>
-            <h1>150 jd <span>/6 Month</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>Join Now To Start Your New Life Style Journey.</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
@@ -73,8 +76,8 @@
 
 
         <div class="card">
-            <h3>Deluxe</h3>
-            <h1>240 jd <span>/1 Year</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>For People Want To Change Thier Life For Better And Optimized Life</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
@@ -99,8 +102,8 @@
     <div class="wrapper sec">
         
         <div class="card">
-            <h3>Intro</h3>
-            <h1>45 jd <span>/Month</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>Join Now To Start Your New Life Style Journey.</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
@@ -115,15 +118,15 @@
 
 
         <div class="card active">
-            <h3>Base</h3>
-            <h1>120 jd <span>/3 Month</span></h1>
+            <h3></h3>
+            <h1></h1>
             <p>Join Now To Start Your New Life Style Journey.</p>
             <ul>
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
                 <li><i class="fa-solid fa-square-check"></i> Using Sauna</li>
                 <li><i class="fa-solid fa-square-check"></i> Use All Gym Features</li>
-                <li><i class="fa-solid fa-square-check"></i> From 6 AM - 3 PM</li>
-                <li><i class="fa-solid fa-square-check"></i> 1 Inbody /1 Eating Program</li>
+                <li><i class="fa-solid fa-square-check"></i> Full Time</li>
+                <li><i class="fa-solid fa-square-check"></i> 3 Inbody /2 Eating Program</li>
                 <li><i class="fa-solid fa-square-xmark"></i> Free BCAA scope every day</li>
             </ul>
             <a href="">Choose Plan</a>
@@ -138,7 +141,7 @@
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
                 <li><i class="fa-solid fa-square-check"></i> Using Sauna</li>
                 <li><i class="fa-solid fa-square-check"></i> Use All Gym Features</li>
-                <li><i class="fa-solid fa-square-check"></i> From 6 AM - 3 PM</li>
+                <li><i class="fa-solid fa-square-check"></i> Full Time</li>
                 <li><i class="fa-solid fa-square-check"></i> 6 Inbody /4 Eating Program</li>
                 <li><i class="fa-solid fa-square-check"></i> Free BCAA scope every day</li>
             </ul>
@@ -154,7 +157,7 @@
                 <li><i class="fa-solid fa-square-check"></i> Use All Equipment</li>
                 <li><i class="fa-solid fa-square-check"></i> Using Sauna</li>
                 <li><i class="fa-solid fa-square-check"></i> Use All Gym Features</li>
-                <li><i class="fa-solid fa-square-check"></i> From 6 AM - 3 PM</li>
+                <li><i class="fa-solid fa-square-check"></i> Full Time</li>
                 <li><i class="fa-solid fa-square-check"></i> 12 Inbody /8 Eating Program</li>
                 <li><i class="fa-solid fa-square-check"></i> Free BCAA scope every day</li>
             </ul>
@@ -162,14 +165,6 @@
         </div>
 
     </div>
-<script>
-  const btn = document.getElementById('toggleBtn');
-  const body = document.body;
-
-  btn.addEventListener('click', () => {
-    body.classList.toggle('dark');
-
-  });
-</script>
+<script type="module" src="./SubPackages.js"></script>
 </body>
 </html>

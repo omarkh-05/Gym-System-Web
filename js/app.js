@@ -1,5 +1,9 @@
+import { checkAuth} from "../Auth/auth.js";
+
 // Enhanced smooth scroll navigation
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+   checkAuth(); // حاول تحديث UI لو المستخدم مسجل دخول
+
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("nav-links");
   if (!toggle || !nav) return;
@@ -19,13 +23,11 @@ document.addEventListener("DOMContentLoaded", function () {
         toggle.setAttribute("aria-expanded", "false");
 
         // Calculate header height for offset
-        const headerHeight =
-          document.querySelector(".site-header").offsetHeight;
+        const headerHeight = document.querySelector(".site-header").offsetHeight;
 
         // Get element position
         const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerHeight;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
         // Smooth scroll with offset
         window.scrollTo({

@@ -24,6 +24,7 @@
     --BackTextColor:rgb(0, 0, 0);
     --cardsboxshadow:10px 10px 10px -1px rgba(83, 100, 112, 0.16),
     3px 3px 10px -1px rgba(101, 99, 99, 0.7);
+    --border-color: #262626;
 }
 body.dark {
    --bodybg:#1e1e1f;
@@ -48,6 +49,9 @@ body.dark {
     --cardaActiveColor:black;
     --BackTextColor:rgb(255, 255, 255);
     --cardsboxshadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    --card-bg: #141414; /* Dark Grey/Black for cards */
+    --text-main: #ffffff;
+     --border-color: #262626;
   }
 *{
     padding: 0;
@@ -84,24 +88,23 @@ body{
     z-index: 5;
 }
 
-.dark-Theme-btn button{
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    border: none;
-    text-align: center;
-    background-color: var(--themebtn);
+.theme-toggle {
     cursor: pointer;
-    transition: all 0.5s ease-in-out;
-    color: var(--icon);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-
-.dark-Theme-btn button:hover{
-    transform: rotate(22deg);
-    color: var(--CardFontColor);
-    background-color: var(--ActiveCardFont);
+.theme-toggle:hover {
+    border-color: red;
 }
-
 @keyframes Appear {
   from {
     opacity: 0;
