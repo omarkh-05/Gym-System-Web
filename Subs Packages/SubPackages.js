@@ -14,7 +14,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error initializing page:", error);
     }
 });
-
+ const IsLoggedIn = localStorage.getItem("isLoggedIn");
+    if (IsLoggedIn){
+        const AuthUser = await FetchUserFrofile();
+        if (AuthUser) {
+            restrictPackages(AuthUser.packageName);
+        }
+       } else {
+            const buttons = document.querySelectorAll(".card a");
+            buttons.forEach(btn => btn.style.display = "none");
+        }
 const body = document.body;
 const btnText = document.getElementById('theme-text');
 const btnIcon = document.getElementById('theme-icon');
@@ -44,16 +53,7 @@ function ApplyDarkTheme() {
 // ============== HELPER ==============
 async function FillPackagesInfo() {
     try {
-        const IsLoggedIn = localStorage.getItem("isLoggedIn");
-    if (IsLoggedIn){
-        const AuthUser = await FetchUserFrofile();
-        if (AuthUser) {
-            restrictPackages(AuthUser.packageName);
-        }
-       } else {
-            const buttons = document.querySelectorAll(".card a");
-            buttons.forEach(btn => btn.style.display = "none");
-        }
+       
         const packages = await FetchGymPackages();
         populateCards(packages);
     } catch (error) {
