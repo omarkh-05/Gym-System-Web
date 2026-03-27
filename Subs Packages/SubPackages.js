@@ -3,16 +3,7 @@ import { UrlBase , apiFetch } from "../Auth/auth.js";
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         await FillPackagesInfo();
-        const IsLoggedIn = localStorage.getItem("isLoggedIn");
-    if (IsLoggedIn){
-        const AuthUser = await FetchUserFrofile();
-        if (AuthUser) {
-            restrictPackages(AuthUser.packageName);
-        }
-       } else {
-            const buttons = document.querySelectorAll(".card a");
-            buttons.forEach(btn => btn.style.display = "none");
-        }
+
         attachCardListeners();
         const LocalMode = localStorage.getItem('mode');
         if (LocalMode) {
@@ -53,6 +44,16 @@ function ApplyDarkTheme() {
 // ============== HELPER ==============
 async function FillPackagesInfo() {
     try {
+        const IsLoggedIn = localStorage.getItem("isLoggedIn");
+    if (IsLoggedIn){
+        const AuthUser = await FetchUserFrofile();
+        if (AuthUser) {
+            restrictPackages(AuthUser.packageName);
+        }
+       } else {
+            const buttons = document.querySelectorAll(".card a");
+            buttons.forEach(btn => btn.style.display = "none");
+        }
         const packages = await FetchGymPackages();
         populateCards(packages);
     } catch (error) {
@@ -87,8 +88,7 @@ function getDurationText(duration) {
  async function restrictPackages(userPackageName) {
     const cards = document.querySelectorAll(".card");
 
-        const packageFeesForSubscriber = await GetPackageFeesFromSubscriber(userPackageName);
-        console.log(packageFeesForSubscriber);
+    const packageFeesForSubscriber = await GetPackageFeesFromSubscriber(userPackageName);
 
     cards.forEach(card => {
         const packageFeesForCard = parseFloat(card.getAttribute("data-fees"));
