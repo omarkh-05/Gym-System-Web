@@ -117,7 +117,7 @@ function attachCardListeners() {
         button.addEventListener("click", (event) => {
             event.preventDefault(); // لمنع الرابط الافتراضي
             const id = card.getAttribute("data-id");
-            window.location.href = `../Payment/Payment.html?id=${id}&=redirect=${encodeURIComponent("../Profile/Profile.html")}`;
+            window.location.href = `../Payment/Payment.html?id=${id}&=redirect=${encodeURIComponent("/Gym-System-Web/Profile/Profile.html")}`;
         });
     });
 }
