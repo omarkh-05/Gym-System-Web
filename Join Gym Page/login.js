@@ -169,8 +169,11 @@ signUpForm.addEventListener("submit", async (e) => {
 
   if (reg) {
     printValidateErrorMessage("Register", "Registered successfully");
-    setTimeout(() => document.getElementById("flip1").checked = false, 1200);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      document.getElementById("flip1").checked = false;
+       window.scrollTo({ top: 0, behavior: "smooth" });
+    } , 1200);
+   
   } else {
     printValidateErrorMessage("Register", "Registration failed");
   }
