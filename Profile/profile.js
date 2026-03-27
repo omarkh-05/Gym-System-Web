@@ -18,11 +18,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     fillAttendance(profile.Attendance || []);
     fillSubscriberInfo(profile);
 });
+const getCommonHeaders = () => ({
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "true"
+});
 
 // ------------- Helpers
 async function loadSubscriberProfile() {
     try {
-        const res = await apiFetch("Home/GetSubsProfile", { method: "GET" });
+        const res = await apiFetch("Home/GetSubsProfile", {method: 'GET',headers: getCommonHeaders(),});
         if (!res || !res.ok) throw new Error("Failed to load profile");
         return await res.json();
     } catch (err) {

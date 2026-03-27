@@ -1,4 +1,8 @@
 import { UrlBase , apiFetch } from "../Auth/auth.js";
+const getCommonHeaders = () => ({
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "true"
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
@@ -122,7 +126,7 @@ function attachCardListeners() {
 async function FetchGymPackages() {
     try
     {
-    const response = await fetch(`${UrlBase}Home/GetGymSubPackages`);
+    const response = await fetch(`${UrlBase}Home/GetGymSubPackages`,{method: "GET",headers:getCommonHeaders()});
     if (!response.ok) throw new Error("Failed to fetch packages");
     const data = await response.json();
     return data;
@@ -148,7 +152,7 @@ async function FetchUserFrofile() {
 async function FetchGymPackageByPackageName(packageName) {
     try
     {
-        const response = await fetch(`${UrlBase}Home/GetPackageByPackageName/${packageName}`);
+        const response = await fetch(`${UrlBase}Home/GetPackageByPackageName/${packageName}`,{method: "GET",headers:getCommonHeaders()});
         if (!response.ok)
             {
               console.log(response.statusText);

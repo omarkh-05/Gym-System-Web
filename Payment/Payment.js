@@ -17,6 +17,10 @@ const previewNumber = document.getElementById('preview-number');
 const previewExpiry = document.getElementById('preview-expiry');
 
 let subscriptionDuration = 0;
+const getCommonHeaders = () => ({
+    "Content-Type": "application/json",
+    "ngrok-skip-browser-warning": "true"
+});
 
 // ============== Subscribe Object ==============
 const subscriberRequest = {
@@ -48,7 +52,7 @@ async function loadPackageData() {
         const id = urlParams.get("id");
         if (!id) return;
       subscriberRequest.SubscriptionInfo = id;
-        const response = await fetch(`${UrlBase}Home/GetPackageById/${id}`);
+        const response = await fetch(`${UrlBase}Home/GetPackageById/${id}`,{method: 'GET',headers: getCommonHeaders(),});
         if (!response.ok) console.log(response.statusText);
 
         const data = await response.json();
